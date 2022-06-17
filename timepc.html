@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jQuery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var index=0,index_1=0,index_2=0,index2=0,index3=0,index4=0,index5=0,index6 = 0
+            $("td").eq(2).css({
+                "width": 32,
+                "background": "url(timepic/dian.png) no-repeat"
+            })
+            $("td").eq(5).css({
+                "width": 32,
+                "background": "url(timepic/dian.png) no-repeat"
+            })
+            $("td").eq(8).css({
+                "width": 32,
+                "background": "url(timepic/dian.png) no-repeat"
+            })
+            var fun = function () {
+                $("td").eq(10).css({
+                    "background": "url(timepic/" + index_2 + ".png) no-repeat"
+                })
+                $("td").eq(9).css({
+                    "background": "url(timepic/" + index_1 + ".png) no-repeat"
+                })
+                $("td").eq(7).css({
+                    "background": "url(timepic/" + index + ".png) no-repeat"
+                })
+                $("td").eq(6).css({
+                    "background": "url(timepic/" + index2 + ".png) no-repeat"
+                })
+                $("td").eq(4).css({
+                    "background": "url(timepic/" + index3 + ".png) no-repeat"
+                })
+                $("td").eq(3).css({
+                    "background": "url(timepic/" + index4 + ".png) no-repeat"
+                })
+                $("td").eq(1).css({
+                    "background": "url(timepic/" + index5 + ".png) no-repeat"
+                })
+                $("td").eq(0).css({
+                    "background": "url(timepic/" + index6 + ".png) no-repeat"
+                })
+                index_2++
+                if (index_2 == 10) {
+                    index_2 = 0
+                    index_1++
+                }
+                if (index_1 ==10) {
+                    index_1 = 0
+                    index++
+                }
+                if (index == 10) {
+                    index = 0
+                    index2++
+                }
+                if (index2 == 6&&index == 0) {
+                    index2 = 0
+                    index3++
+                }
+                if (index3 == 10) {
+                    index3 = 0
+                    index4++
+                }
+                if (index4 == 6 && index3 == 0) {
+                    index4 = 0
+                    index5++
+                }
+                if (index5 ==10) {
+                    index5 = 0
+                    index6++
+                }
+            }
+
+            var timer = setInterval (fun, 10)
+            clearInterval(timer)
+            $("img").click(function () {
+
+                if ($(this).index() === 3) {
+
+                    clearInterval(timer)
+                    index_1=0
+                    index_2=0
+                    index = 0
+                    index2 = 0
+                    index3 = 0
+                    index4 = 0
+                    index5 = 0
+                    index6 = 0
+                    fun()
+                }
+                if ($(this).index() === 2) {
+
+                    clearInterval(timer)
+                }
+                if ($(this).index() === 1) {
+                    clearInterval(timer)
+                    timer = setInterval (fun, 10)
+                }
+            })
+        })
+    </script>
+
+    <style>
+        td {
+            width: 70px;
+            height: 87px;
+            border: black 1px solid;
+            background-image: url(timepic/0.png);
+            background-repeat: no-repeat;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <table>
+
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+</div>
+<img src="timepic/ks.png" alt="">
+<img src="timepic/zt.png" alt="">
+<img src="timepic/tz.png" alt="">
+</body>
+</html>
